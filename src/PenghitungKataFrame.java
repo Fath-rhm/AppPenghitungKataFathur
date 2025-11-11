@@ -1,8 +1,28 @@
+import java.awt.event.*;
+import javax.swing.event.*;
+import javax.swing.*;
 
 public class PenghitungKataFrame extends javax.swing.JFrame {
 
     public PenghitungKataFrame() {
         initComponents();
+         // 🔹 Tambahkan DocumentListener agar menghitung secara real-time
+        txtInput.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                hitungTeks();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                hitungTeks();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                hitungTeks();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
